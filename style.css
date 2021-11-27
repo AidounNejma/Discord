@@ -1,0 +1,751 @@
+/* Général */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;900&display=swap');
+
+* { /* "*" Permet de prendre tout du fichier html, on met ensuite les valeurs à 0 pour que tout colle (qu'il n'y est pas d'espace blanc sur les cotés) */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat;
+}
+
+/* Création de variables de couleurs pour toujours garder les mêmes sans se tromper */
+:root{
+    --main-white: #fff;
+    --main-black: #000;
+    --main-darkgrey: #23272a;
+    --main-purple: #5865f2;
+    --main-grey: #f1ecec8c;
+    --header-blue: #4870ed;
+    
+} 
+
+/* Animations */
+
+/* Animation Menu */
+.slideInRight {
+    animation-name: slideInRight;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    }
+
+    @keyframes slideInRight {
+    0% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    visibility: visible;
+    }
+    100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    }
+    } 
+
+    .slideOutRight{
+        animation-name: slideOutRight;
+        animation-duration: 1s;
+        animation-fill-mode: both;
+        }
+
+        @keyframes slideOutRight {
+        0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        }
+        100% {
+        visibility: hidden;
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+        }
+        } 
+/* Fin Animation Menu */
+/* Fin Général */
+
+
+/* Header */
+
+a{ /* Je prends tous les liens du fichier (plus rapide) */
+    text-decoration: none; /* et je modifie le style basique des liens (qui est souligné)*/
+    color: var(--main-white);/* je les mets en blanc   */
+}
+
+header { /* Mon header est le première écran que l'on voit en arrivant */
+    background: url("assets/img/headerimgright.svg") no-repeat bottom left 1000px,
+        url("assets/img/headerimgleft.svg") no-repeat bottom right 972px,
+        url("assets/img/headerimgmiddle.svg") no-repeat bottom,
+        var(--header-blue); /* Je mets les images à la suite en background en réglant la position et les répétitions */
+}
+
+.mobile{
+    display: none; /* menu burger mis en display none = n'apparait pas dans le dom, à faire réapparaitre au changement de l'écran */
+}
+
+nav{ /* Ma nav regroupe les liens de la barre du menu (tout en haut de la page) */
+    display: flex; /* display flex => si on ne précise pas le "flex-direction" c'est qu'il est en row */
+    justify-content: space-between; /* "justify-content" aligne les objets sur l'axe principal*/
+    align-items: center; /* "align-items" aligne les objets sur l'axe secondaire */
+    padding: 2% 6%; /*  le padding prend de l'espace dans la boite. La 1ère valeur: haut et bas, la 2ème : gauche et droit */
+    font-weight: 500; /* selon la police que j'ai choisi (celle ci est un peu plus en gras que les autres) */
+    font-size: 15px; /* taille de la police */
+}
+
+.logo{
+    width: 30px; /* largeur du logo, ici 30 pixels */
+}
+
+#navCenter{
+    display: inline-block;
+}
+
+#navCenter a{
+    padding: 0 15px;
+}
+
+#navCenter a:hover{ /* ":hover" permet d'assigner du css au survol de la souris uniquement */
+    text-decoration: underline; /* ici je lui dis que je veux que ce soit souligné au survol de la souris*/
+}
+
+#navBtn{
+    color: var(--main-black); /* variable de couleur écrite en haut du fichier css dans l'espace général */
+    background-color: var(--main-white);
+    padding: 10px 15px;
+    text-align: center;
+    border-radius: 40px; /* permet d'arrondir le bouton */
+    font-size: 13px;
+}
+
+.sideMenu{
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    width: 35%;
+    height: -webkit-fill-available;
+    top: 0;
+    border-radius: 7px 0px 0px 7px;
+    padding: 0% 3% 2% 3%;
+    background-color: var(--main-white);
+}
+
+.sideMenu a{
+    color: var(--main-black);
+    padding: 4% 0;
+}
+
+#sideMenuHeading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 6%;
+}
+
+#sideMenuHeading img{
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+#line{
+    width: 95%;
+    height: 1px;
+    margin: 22px auto 26px auto;
+    background-color: #e3dfdf;
+}
+
+#sideMenuLinks{
+    display: flex;
+    flex-direction: column;
+    padding: 0 8% 35% 8%;
+}
+
+#sideMenuLinks{
+    font-weight: 300;
+}
+
+#sideMenuLinks a:hover{
+    text-decoration: underline;
+}
+
+#linkPurple{
+    border-radius: 40px;
+    width: 80%;
+    padding: 14px 8px;
+    text-align: center;
+    font-weight: 500;
+    background-color: var(--main-purple);
+    color: var(--main-white);
+}
+
+#linkPurple:hover{
+    box-shadow: 10px 5px 5px 5px #0000001e;
+    background-color: #7289da;
+    transition: 1s;
+}
+
+#navBtn:hover, #linkOne:hover{
+    box-shadow: 10px 5px 5px 5px #0000001e; /* effet d'ombre sur un objet */
+    color: #3d3881;
+    transition: 0.5s; /* transition: permet de déterminer le temps de l'animation */
+}
+
+#headerTitle{
+    display: flex;
+    flex-direction: column; /* flex-direction: column => permet de mettre mes éléments sous forme de colonne, les uns en dessous des autres */
+    padding: 10% 20%;
+    margin-bottom: 20px; /* le margin prend de l'espace en dehors de la boîte (div ou autre balise servant de contenant). Ici je ne prends que la valeur du bas: margin-bottom. */
+    text-align: center;
+    color: var(--main-white);
+}
+
+#headerTitle h1{
+    text-transform: uppercase; /* "uppercase" permet de mettre le texte en majuscule  */
+    font-size: 60px;
+    text-align: center;
+    padding: 10px 80px 30px 80px;
+    line-height: 55px; /* line-height: détermine l'espace entre les lignes. */
+}
+
+#headerTitle p{
+    line-height: 30px;
+    font-size: 18px;
+    padding: 0 20px 35px 20px;
+}
+
+#headerLink{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#headerLink a{
+    border-radius: 40px;
+    padding: 18px 28px;
+    text-align: center;
+    font-weight: 500;
+}
+
+#linkOne{
+    background-color: var(--main-white);
+    color: var(--main-black);
+}
+
+#linkTwo{
+    background-color: var(--main-darkgrey);
+    color: var(--main-white);
+}
+
+#linkTwo:hover{
+    box-shadow: 10px 5px 5px 5px #0000001e;
+    background-color: #505050;
+    transition: 1s;
+}
+
+/* Fin Header */
+
+/* Main */
+
+.mainBlocks{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10% 3%;
+    width: 100%;
+}
+
+.mainBlocksImage{
+    width: 50%;
+}
+
+.mainBlocks img{
+    width: 100%;
+}
+
+.blocksText{
+    padding: 0 0 0 4%;
+    width: 50%;
+}
+
+.blocksText h2, #blockText h2{
+    color: var(--main-darkgrey);
+    font-size: 45px;
+    padding-bottom: 2%;
+}
+
+.blocksText p, #blockText p{
+    line-height: 2rem;
+}
+
+.mainBlockLeft{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    padding: 10% 3%;
+    background-color: var(--main-grey);
+    /*  visibility: hidden; pour l'animation au scroll à revoir*/
+}
+
+.mainBlockLeft img{
+    width: 100%;
+}
+
+#blockText{
+    padding: 0 10% 0 0;
+    width: 50%;
+}
+
+#mainBlockCenter{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    text-align: center;
+    background-color: var(--main-grey);
+    padding-bottom: 3%;
+}
+
+#textBlockCenter{
+    padding: 9% 12% 3% 12%;
+}
+
+#mainBlockCenter h2{
+    font-size: 45px;
+    padding: 0 0 2% 0;
+    line-height: 2.7rem;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+#mainBlockCenter p{
+    font-size: 17px;
+    padding: 0 5%;
+    line-height: 2.1rem;
+}
+
+#questionCenter{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 5% 0;
+}
+
+#questionCenterImg{
+    margin: auto;
+}
+
+#questionCenter h3{
+    font-size: 30px;
+    padding-bottom: 30px;
+}
+
+#questionCenter a{
+    color: var(--main-white);
+    background-color: var(--main-purple);
+    padding: 20px;
+    text-align: center;
+    border-radius: 40px;
+    font-size: 16px;
+    margin:auto;
+    font-weight: 500
+
+}
+
+#questionCenter a:hover{
+    background-color: #7a83e2;
+    transition: 1s;
+}
+
+/* Fin Main */
+
+/* Footer */
+
+footer {
+    background-color: var(--main-darkgrey);
+    padding: 5% 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#container{
+    display: flex;
+    width: 100%;
+    padding: 0 5%;
+}
+
+#blocksFourFooter{
+    display: flex;
+    width: 70%;
+}
+
+.footerBlock{
+    display: flex;
+    flex-direction: column;
+    line-height: 2rem;
+    padding: 0 4%;
+}
+
+.footerBlock a{
+    font-size: 15px;
+}
+
+.footerBlock a:hover{
+    text-decoration: underline;
+}
+
+.footerBlockOne{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+#footerTitle{
+    padding-bottom: 5%;;
+}
+
+#title{
+    color: var(--main-purple);
+    font-weight: 800;
+}
+
+.footerBlockOne h4{
+    font-size: 35px;
+}
+
+#select{
+    padding-bottom: 5%;
+}
+
+.footerBlockOne select{
+    background-color: var(--main-darkgrey);
+    color: var(--main-white);
+    border: none;
+    font-size: 14px;
+}
+
+.footerBlockOne a{
+    font-size: 22px;
+    padding: 0 10% 0 0;
+}
+
+.footerCategory{
+    color: var(--main-purple);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.trait{
+    width: 90%;
+    height: 1px;
+    margin: 22px auto 26px auto;
+    background-color: var(--main-purple);
+}
+
+#footerBottom{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2% 4% 0 4%;
+}
+
+#lastLink{
+    color: var(--main-white);
+    background-color: var(--main-purple);
+    padding: 10px 15px;
+    text-align: center;
+    border-radius: 40px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+#lastLink:hover{
+    box-shadow: 10px 5px 5px 5px #0000001e;
+    background-color: #7289da;
+    transition: 1s;
+}
+
+
+/* Responsive */
+/* Le responsive se gère avec les media queries */
+
+@media screen and (max-width: 1097px){
+    #headerLink{
+        display: flex;
+        flex-direction: column;
+        padding: 0 15%;
+    }
+    #headerLink a{
+        margin: 2% 0;
+    }
+}
+
+
+
+@media screen and (max-width: 1024px) {
+    header {
+        background: url("assets/img/headerimgright.svg") no-repeat bottom left 176%,
+                    url("assets/img/headerimgmiddle.svg") no-repeat bottom,
+                    var(--header-blue);
+    }
+    
+    .mobile {
+        display: block;
+        margin: 15px;
+        width: 30px;
+        float: right;
+    }
+
+    .mobile:hover{
+        cursor: pointer;
+    }
+
+    #navLinksRight{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    #navCenter {
+        display: none; /* pour supprimer la nav sur mobile*/
+    }
+
+
+    #headerLink{
+        display: flex;
+        flex-direction: column;
+        padding: 0 45% 0 0;
+    }
+
+    #headerTitle {
+        padding: 10% 30% 10% 5%;
+        margin-bottom: 20px;
+    }
+
+    #headerTitle h1 {
+    padding: 3% 33% 5% 0;
+    text-align: left;
+    }
+
+    #headerTitle p {
+        padding: 0 50px 35px 0px;
+        text-align: left;
+    }
+
+    #container{
+        padding: 3% 5%;
+    }
+    .footerBlockOne{
+        width: 40%;
+    }
+
+    #blocksFourFooter{
+        flex-wrap: wrap;
+        width: 60%;
+    }
+    
+    .footerBlock{
+        width: 50%;
+    }
+
+}
+
+
+@media screen and (max-width: 762px){
+    header {
+        background: 
+        url("assets/img/headerimgleft.svg") no-repeat bottom right 70px, 
+        var(--header-blue);
+    }
+
+    #headerTitle {
+        padding: 10% 3% 10% 3%;
+        margin-bottom: 20px;
+    }
+
+    #headerTitle h1 {
+        padding: 0% 0% 4% 0;
+        text-align: left;
+        font-size: 40px;
+    }
+
+    #headerTitle p {
+        padding: 0px 0px 25px 0px;
+        text-align: left;
+        line-height: 25px;
+        font-size: 14px;
+    }
+
+    #headerLink {
+        display: flex;
+        flex-direction: row;
+        padding: 0 0% 47% 0%;
+    }
+
+    #headerLink a {
+        margin: 0;
+    }
+
+    .mainBlocks, .mainBlockLeft{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .mainBlocksImage{
+        width: 100%;
+        padding-bottom: 5%;
+    }
+    
+    .blocksText, #blockText, #textBlockCenter{
+        width: 100%;
+        text-align: left;
+        padding: 0;
+    }
+
+    .blocksText h2, #blockText h2, #textBlockCenter h2{
+        font-size: 30px;
+    }
+
+    .blocksText p, #blockText p, #textBlockCenter p{
+        line-height: 1.5rem;
+        font-size: 13px;
+        padding: 0;
+    }
+
+    #mainBlockCenter{
+        padding: 10% 3%;
+    }
+
+    #questionCenterImg{
+        width: 100%;
+    }
+
+    #container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #blocksFourFooter{
+        width: 100%;
+        padding-top: 8%;
+    }
+
+}
+
+/* Iphone 6/7/8 plus orientation landscape */
+@media screen and (max-width: 736px) and (orientation: landscape){
+    #sideMenuLinks{
+        overflow: scroll;
+        height: 50%;
+        margin-bottom: 10%;
+    }
+    .sideMenu{
+        width: 45%;
+    }
+
+    #linkPurple{
+        padding: 12px 6px;
+    }
+}
+
+/* Iphone 6/7/8 plus */
+@media screen and (max-width: 414px){
+    #linkTwo{
+        display: none;
+    }
+    .sideMenu{
+        width: 85%;
+        border-radius: 0;
+        padding: 0 8% 20% 8%;
+    }
+}
+
+/* Iphone 5SE */
+@media screen and (max-width: 320px){
+    header {
+        background: 
+        url(assets/img/headerimgleft.svg) no-repeat bottom right, 
+        var(--header-blue);
+    }
+
+    nav {
+        padding: 2% 1% 6% 1%;
+    }
+
+    .sideMenu{
+        width: -webkit-fill-available;
+        border-radius: 0;
+        padding: 0 8% 20% 8%;
+    }
+    
+    #headerTitle {
+        padding: 10% 5%;
+    }
+
+    #headerTitle h1{
+        font-size: 30px;
+        line-height: 30px;
+    }
+
+    #headerTitle h1{
+        line-height: 27px;
+    }
+
+    #headerLink {
+        flex-direction: column;
+        padding: 0 0% 100% 0%;
+    }
+
+    #headerLink a {
+        margin-bottom: 6%;
+        padding-bottom: 9%;
+    }
+
+    .blocksText, #blockText, #textBlockCenter {
+        padding: 2%;
+    }
+
+    .blocksText h2, #blockText h2, #textBlockCenter h2 {
+        font-size: 20px;
+        padding-bottom: 25px;
+    }
+
+    #mainBlockCenter {
+        padding: 10% 5%;
+    }
+
+    #mainBlockCenter h2 {
+        line-height: 1.5rem;
+    }
+
+
+    #mainBlockCenter img {
+        margin: 4% 0;
+    }
+
+    .footerBlockOne {
+        width: 100%;
+        padding: 15% 0;
+    }
+
+    .footerBlockOne h4 {
+        font-size: 32px;
+    }
+
+    .footerBlock {
+        width: 50%;
+        padding-bottom: 5%;
+    }
+
+    #footerBottom {
+        align-items: center;
+        padding: 3% 5% 10% 5%;
+    }
+}
+
+/* Animations */
+.reveal{
+    opacity: 0;
+    transform: translateY(-30px);
+}
+
+.reveal-visible{
+    opacity: 1;
+    transform: translateY(0);
+    transition: .3s;
+}
