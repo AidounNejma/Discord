@@ -41,21 +41,26 @@ function closeSideMenu(){
 // ---------------------------------------------------------------------------------------------
 /* Animation des blocs  */
 
-/* const ratio = .1
-var options = {
-    root: null,
-    rootMargin: '0px',
-    threshold: ratio
-}
+/* Utilisation de l'API instersection Observer pour détecter quand un bloc est 
+    visible à l'écran (voir tuto grafikart) */
 
-const handleIntersect = function(entries, observer){
-    //console.log('handleIntersect');
-    entries.forEach(function(entry){
-        if(entry.intersectionRation > ratio){
-            entry.target.classList.add("reveal-visible")
-            observer.unobserve(entry.target)
-        } 
+    const ratio = .1
+    const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: ratio
+    }
+    
+    const handleIntersect = function (entries, observer) {
+        entries.forEach(function (entry) {
+            if (entry.intersectionRatio > ratio) {
+                entry.target.classList.add('reveal-visible')
+                observer.unobserve(entry.target) //une fois que l'élément a été vu une fois, il ne fera plus aucun appel (éviter la répétition de l'animation)
+            } 
+        })
+    }
+    const observer = new IntersectionObserver(handleIntersect, options);
+    document.querySelectorAll('.reveal').forEach(function (r){ /* boucle pour prendre plusieurs éléments dans l'animation */
+        observer.observe(r)
     })
-}
-const observer = new IntersectionObserver(handleIntersect, options)
-observer.observe(document.querySelector(".reveal")) */
+    
