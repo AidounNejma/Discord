@@ -86,9 +86,9 @@ a{ /* Je prends tous les liens du fichier (plus rapide) */
 }
 
 header { /* Mon header est le première écran que l'on voit en arrivant */
-    background: url("assets/img/headerimgright.svg") no-repeat bottom left 1000px,
-        url("assets/img/headerimgleft.svg") no-repeat bottom right 972px,
-        url("assets/img/headerimgmiddle.svg") no-repeat bottom,
+    background: url("../img/headerimgright.svg") no-repeat bottom left 1000px,
+        url("../img/headerimgleft.svg") no-repeat bottom right 972px,
+        url("../img/headerimgmiddle.svg") no-repeat bottom,
         var(--header-blue); /* Je mets les images à la suite en background en réglant la position et les répétitions */
 }
 
@@ -496,8 +496,8 @@ footer {
 
 @media screen and (max-width: 1024px) {
     header {
-        background: url("assets/img/headerimgright.svg") no-repeat bottom left 176%,
-                    url("assets/img/headerimgmiddle.svg") no-repeat bottom,
+        background: url("../img/headerimgright.svg") no-repeat bottom left 176%,
+                    url("../img/headerimgmiddle.svg") no-repeat bottom,
                     var(--header-blue);
     }
     
@@ -566,7 +566,7 @@ footer {
 @media screen and (max-width: 762px){
     header {
         background: 
-        url("assets/img/headerimgleft.svg") no-repeat bottom right 70px, 
+        url("../img/headerimgleft.svg") no-repeat bottom right 70px, 
         var(--header-blue);
     }
 
@@ -676,7 +676,7 @@ footer {
 @media screen and (max-width: 320px){
     header {
         background: 
-        url(assets/img/headerimgleft.svg) no-repeat bottom right, 
+        url("../img/headerimgleft.svg") no-repeat bottom right, 
         var(--header-blue);
     }
 
